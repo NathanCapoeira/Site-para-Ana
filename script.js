@@ -1,7 +1,17 @@
 const botao = document.getElementById("btnComecar");
 const container = document.querySelector(".container");
+const player = document.getElementById("player");
+
+const playlist = [
+    "musicas/me-gustas-tu.mp3"
+];
+
+let musicaAtual = 0;
 
 botao.addEventListener("click", () => {
+    player.src = playlist[musicaAtual];
+player.play();
+
     container.innerHTML = `
         <h1>Para Ana ❤️</h1>
 
@@ -142,6 +152,30 @@ document.addEventListener("click", (evento) => {
 
     if(evento.target.id === "voltarInicio"){
         location.reload();
+    }
+
+});
+document.addEventListener("click", (evento) => {
+
+    if(evento.target.id === "pausarMusica"){
+        if(player.paused){
+            player.play();
+            evento.target.textContent = "⏸️ Pausar";
+        }else{
+            player.pause();
+            evento.target.textContent = "▶️ Tocar";
+        }
+    }
+
+    if(evento.target.id === "proximaMusica"){
+        musicaAtual++;
+
+        if(musicaAtual >= playlist.length){
+            musicaAtual = 0;
+        }
+
+        player.src = playlist[musicaAtual];
+        player.play();
     }
 
 });
