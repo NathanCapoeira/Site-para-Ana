@@ -3,7 +3,7 @@ const container = document.querySelector(".container");
 const player = document.getElementById("player");
 
 const playlist = [
-    "musicas/me-gustas-tu.mp3"
+    "me-gustas-tu.mp3"
 ];
 
 let musicaAtual = 0;
