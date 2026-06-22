@@ -1,5 +1,6 @@
 const botao = document.getElementById("btnComecar");
 const container = document.querySelector(".container");
+let telaGaleria = "";
 const player = document.getElementById("player");
 
 const playlist = [
@@ -82,6 +83,7 @@ document.addEventListener("click", (evento) => {
 document.addEventListener("click", (evento) => {
 
     if(evento.target.id === "abrirCarta"){
+        telaGaleria = container.innerHTML;
 
         container.innerHTML = `
 
@@ -147,8 +149,9 @@ document.addEventListener("click", (evento) => {
 document.addEventListener("click", (evento) => {
 
     if(evento.target.id === "voltarGaleria"){
-    document.getElementById("proximo").click();
-    }
+    container.innerHTML = telaGaleria;
+}
+    
 
     if(evento.target.id === "voltarInicio"){
         location.reload();
