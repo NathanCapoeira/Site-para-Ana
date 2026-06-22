@@ -27,22 +27,22 @@ botao.addEventListener("click", () => {
             <div class="galeria">
 
     <div class="card-foto">
-        <img src="fotos aninha/ana1.jpeg" alt="Foto da Ana">
+        <img src="ana1.jpeg" alt="Foto da Ana">
         <p>Seu sorriso tem um jeito especial de deixar tudo mais bonito.</p>
     </div>
 
     <div class="card-foto">
-        <img src="fotos aninha/ana2.jpeg" alt="Foto da Ana">
+        <img src="ana2.jpeg" alt="Foto da Ana">
         <p>Você é uma daquelas pessoas que tornam os dias mais leves.</p>
     </div>
 
     <div class="card-foto">
-        <img src="fotos aninha/ana3.jpeg" alt="Foto da Ana">
+        <img src="ana3.jpeg" alt="Foto da Ana">
         <p>Eu amo cada detalhe seu, até aqueles que você talvez nem perceba.</p>
     </div>
 
     <div class="card-foto">
-        <img src="fotos aninha/minecraft.jpg" alt="Nós no Minecraft">
+        <img src="minecraft.jpg" alt="Nós no Minecraft">
         <p>Entre todos os mundos que eu poderia explorar, meu favorito é aquele em que você está comigo.</p>
     </div>
 
