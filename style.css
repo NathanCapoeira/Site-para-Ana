@@ -216,3 +216,62 @@ button:hover{
 .coracao:hover {
     transform: scale(1.15);
 }
+
+@media (max-width: 768px){
+
+    body{
+        height:auto;
+        min-height:100vh;
+        padding:30px 0;
+        display:block;
+    }
+
+    .container{
+        width:90%;
+        max-width:90%;
+        margin:0 auto 25px auto;
+        padding:28px 20px;
+    }
+
+    .galeria{
+        grid-template-columns:1fr;
+    }
+
+    .bloco-coracoes{
+        width:90%;
+        max-width:90%;
+        margin:25px auto;
+        padding:28px 20px;
+    }
+
+    .coracoes{
+        flex-direction:row;
+        gap:14px;
+    }
+
+    .coracao{
+        width:65px;
+        height:65px;
+        font-size:28px;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    .bloco-coracoes h2{
+        font-size:32px;
+    }
+
+    .carta{
+        width:90%;
+        max-width:90%;
+        margin:0 auto;
+        padding:28px 22px;
+    }
+
+    .carta p{
+        font-size:17px;
+        line-height:1.7;
+    }
+}
