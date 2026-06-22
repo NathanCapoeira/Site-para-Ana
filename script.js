@@ -147,7 +147,7 @@ document.addEventListener("click", (evento) => {
 document.addEventListener("click", (evento) => {
 
     if(evento.target.id === "voltarGaleria"){
-        location.reload();
+    document.getElementById("proximo").click();
     }
 
     if(evento.target.id === "voltarInicio"){
