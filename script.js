@@ -1,184 +1,173 @@
-const botao = document.getElementById("btnComecar");
-const container = document.querySelector(".container");
-let telaGaleria = "";
+const screens = {
+    inicio: document.getElementById("inicio"),
+    mensagem: document.getElementById("mensagem"),
+    galeria: document.getElementById("galeria")
+};
+
+const buttons = {
+    comecar: document.getElementById("btnComecar"),
+    continuar: document.getElementById("btnContinuar"),
+    inicio: document.getElementById("btnInicio"),
+    musica: document.getElementById("btnMusica"),
+    abrirCarta: document.getElementById("btnAbrirCarta"),
+    fecharCarta: document.getElementById("btnFecharCarta"),
+    voltarGaleria: document.getElementById("btnVoltarGaleria"),
+    fecharImagem: document.getElementById("btnFecharImagem")
+};
+
 const player = document.getElementById("player");
+const carta = document.getElementById("carta");
+const modalImagem = document.getElementById("modalImagem");
+const imagemAmpliada = document.getElementById("imagemAmpliada");
+const mensagemCoracao = document.getElementById("mensagemCoracao");
+let telaAtual = "inicio";
+const tempoAnimacaoDialog = 220;
 
-const playlist = [
-    "me-gustas-tu.mp3"
-];
+function mostrarTela(nomeDaTela) {
+    Object.entries(screens).forEach(([nome, screen]) => {
+        const telaAtiva = nome === nomeDaTela;
 
-let musicaAtual = 0;
+        screen.hidden = !telaAtiva;
+        screen.classList.toggle("screen--active", telaAtiva);
+    });
 
-botao.addEventListener("click", () => {
-    player.src = playlist[musicaAtual];
-player.play();
+    telaAtual = nomeDaTela;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
-    container.innerHTML = `
-        <h1>Para Ana ❤️</h1>
+async function tocarMusica() {
+    try {
+        await player.play();
+        atualizarBotaoMusica(true);
+    } catch (erro) {
+        atualizarBotaoMusica(false);
+    }
+}
 
-        <p>
-            Entre todas as pessoas que eu poderia conhecer,
-            eu sou muito feliz por ter encontrado você.
-        </p>
+function pausarMusica() {
+    player.pause();
+    atualizarBotaoMusica(false);
+}
 
-        <button id="proximo">Continuar</button>
-    `;
+function alternarMusica() {
+    if (player.paused) {
+        tocarMusica();
+        return;
+    }
 
-    document.getElementById("proximo").addEventListener("click", () => {
-        container.innerHTML = `
-           <button id="voltarInicio">← Início</button>
+    pausarMusica();
+}
 
-<h1>Momentos Especiais ✨</h1>
+function atualizarBotaoMusica(estaTocando) {
+    buttons.musica.classList.toggle("is-playing", estaTocando);
+    buttons.musica.setAttribute("aria-pressed", String(estaTocando));
+    buttons.musica.textContent = estaTocando ? "⏸ Pausar música" : "▶ Tocar música";
+}
 
-            <p>
-                Separei alguns momentos porque cada detalhe seu
-                tem um valor enorme pra mim.
-            </p>
+function abrirCarta() {
+    if (typeof carta.showModal === "function") {
+        carta.showModal();
+    } else {
+        carta.setAttribute("open", "");
+    }
 
-            <div class="galeria">
+    requestAnimationFrame(() => carta.classList.add("is-visible"));
+    buttons.fecharCarta.focus();
+}
 
-    <div class="card-foto">
-        <img src="ana1.jpeg" alt="Foto da Ana">
-        <p>Seu sorriso tem um jeito especial de deixar tudo mais bonito.</p>
-    </div>
+function fecharCarta() {
+    carta.classList.remove("is-visible");
 
-    <div class="card-foto">
-        <img src="ana2.jpeg" alt="Foto da Ana">
-        <p>Você é uma daquelas pessoas que tornam os dias mais leves.</p>
-    </div>
+    setTimeout(() => {
+        if (typeof carta.close === "function") {
+            carta.close();
+        } else {
+            carta.removeAttribute("open");
+        }
 
-    <div class="card-foto">
-        <img src="ana3.jpeg" alt="Foto da Ana">
-        <p>Eu amo cada detalhe seu, até aqueles que você talvez nem perceba.</p>
-    </div>
+        if (telaAtual === "galeria") {
+            buttons.abrirCarta.focus();
+        }
+    }, tempoAnimacaoDialog);
+}
 
-    <div class="card-foto">
-        <img src="minecraft.jpg" alt="Nós no Minecraft">
-        <p>Entre todos os mundos que eu poderia explorar, meu favorito é aquele em que você está comigo.</p>
-    </div>
+function abrirImagem(botaoFoto) {
+    const imagem = botaoFoto.querySelector("img");
 
-</div>
-        `;
+    imagemAmpliada.src = imagem.src;
+    imagemAmpliada.alt = imagem.alt;
+
+    if (typeof modalImagem.showModal === "function") {
+        modalImagem.showModal();
+    } else {
+        modalImagem.setAttribute("open", "");
+    }
+
+    requestAnimationFrame(() => modalImagem.classList.add("is-visible"));
+    buttons.fecharImagem.focus();
+}
+
+function fecharImagem() {
+    modalImagem.classList.remove("is-visible");
+
+    setTimeout(() => {
+        if (typeof modalImagem.close === "function") {
+            modalImagem.close();
+        } else {
+            modalImagem.removeAttribute("open");
+        }
+
+        imagemAmpliada.src = "";
+        imagemAmpliada.alt = "";
+    }, tempoAnimacaoDialog);
+}
+
+buttons.comecar.addEventListener("click", () => {
+    mostrarTela("mensagem");
+    tocarMusica();
+});
+
+buttons.continuar.addEventListener("click", () => {
+    mostrarTela("galeria");
+});
+
+buttons.inicio.addEventListener("click", () => {
+    mostrarTela("inicio");
+});
+
+buttons.musica.addEventListener("click", alternarMusica);
+buttons.abrirCarta.addEventListener("click", abrirCarta);
+buttons.fecharCarta.addEventListener("click", fecharCarta);
+buttons.voltarGaleria.addEventListener("click", fecharCarta);
+buttons.fecharImagem.addEventListener("click", fecharImagem);
+
+document.querySelectorAll(".heart-button").forEach((button) => {
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".heart-button").forEach((item) => {
+            item.classList.remove("is-selected");
+        });
+
+        button.classList.add("is-selected");
+        mensagemCoracao.textContent = button.dataset.msg;
     });
 });
-document.addEventListener("click", (evento) => {
-    if(evento.target.matches(".card-foto img")){
-        const modal = document.getElementById("modal");
-        const imagemModal = document.getElementById("imagemModal");
 
-        imagemModal.src = evento.target.src;
-        modal.classList.add("ativo");
-    }
+document.querySelectorAll(".photo-button").forEach((button) => {
+    button.addEventListener("click", () => abrirImagem(button));
+});
 
-    if(evento.target.id === "modal"){
-        evento.target.classList.remove("ativo");
+carta.addEventListener("click", (event) => {
+    if (event.target === carta) {
+        fecharCarta();
     }
 });
-document.addEventListener("click", (evento) => {
-    if(evento.target.classList.contains("coracao")){
-        const mensagem = evento.target.getAttribute("data-msg");
-        document.getElementById("mensagemCoracao").textContent = mensagem;
+
+modalImagem.addEventListener("click", (event) => {
+    if (event.target === modalImagem) {
+        fecharImagem();
     }
 });
-document.addEventListener("click", (evento) => {
 
-    if(evento.target.id === "abrirCarta"){
-        telaGaleria = container.innerHTML;
-
-        container.innerHTML = `
-
-            <div class="carta">
-
-                <h1>Uma última coisa ❤️</h1>
-
-                <p>
-                    Ana,
-                    <br><br>
-
-                    Eu poderia simplesmente ter mandado uma mensagem.
-
-                    Mas eu quis fazer algo diferente.
-
-                    Talvez esse site não seja perfeito, talvez ele tenha alguns erros,
-                    algumas partes simples, mas cada detalhe aqui foi feito pensando em você.
-
-                    <br><br>
-
-                    Cada foto, cada frase e cada coração foram colocados aqui porque você é uma pessoa muito especial para mim.
-
-                    <br><br>
-
-                    Você faz parte dos meus pensamentos, dos meus dias e dos momentos que eu mais gosto de lembrar.
-
-                    <br><br>
-
-                    Obrigado por todas as conversas, pelas risadas, pela companhia e por ser quem você é.
-
-                    <br><br>
-
-                    Eu admiro seu jeito, sua personalidade e a pessoa incrível que você é.
-
-                    <br><br>
-
-                    E acima de tudo, queria que você soubesse uma coisa:
-
-                    <br><br>
-
-                    <strong>Eu te amo. ❤️</strong>
-
-                    <br><br><br>
-
-                    Com carinho,
-
-                    <br>
-
-                    <strong>Nathan</strong>
-                    <br><br>
-
-<button id="voltarGaleria">
-    Voltar ❤️
-</button>
-                </p>
-
-            </div>
-
-        `;
-    }
-
-});
-document.addEventListener("click", (evento) => {
-
-    if(evento.target.id === "voltarGaleria"){
-    container.innerHTML = telaGaleria;
-}
-    
-
-    if(evento.target.id === "voltarInicio"){
-        location.reload();
-    }
-
-});
-document.addEventListener("click", (evento) => {
-
-    if(evento.target.id === "pausarMusica"){
-        if(player.paused){
-            player.play();
-            evento.target.textContent = "⏸️ Pausar";
-        }else{
-            player.pause();
-            evento.target.textContent = "▶️ Tocar";
-        }
-    }
-
-    if(evento.target.id === "proximaMusica"){
-        musicaAtual++;
-
-        if(musicaAtual >= playlist.length){
-            musicaAtual = 0;
-        }
-
-        player.src = playlist[musicaAtual];
-        player.play();
-    }
-
-});
+player.addEventListener("play", () => atualizarBotaoMusica(true));
+player.addEventListener("pause", () => atualizarBotaoMusica(false));
+player.addEventListener("ended", () => atualizarBotaoMusica(false));
