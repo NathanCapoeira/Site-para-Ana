@@ -1,17 +1,19 @@
 # Site para Ana
 
-Mini-site romântico feito como surpresa para Ana.
+Presente digital romântico feito em HTML, CSS e JavaScript puro.
 
 ## Como abrir
 
-Abra o arquivo `index.html` em um navegador moderno ou rode um servidor local na pasta do projeto.
+Abra o arquivo `index.html` diretamente no navegador.
 
-## Estrutura
+## Como publicar no GitHub Pages
 
-- `index.html`: estrutura principal da surpresa.
+Envie todos os arquivos desta pasta para um repositório e publique a branch principal pelo GitHub Pages. O site não precisa de build, Node, npm ou dependências externas.
+
+## Arquivos importantes
+
+- `index.html`: estrutura da experiência.
 - `style.css`: visual, responsividade e animações.
-- `script.js`: navegação, música, carta, corações e galeria.
-- `assets/images`: fotos usadas na galeria.
-- `assets/audio`: música usada no player.
-
-Os arquivos de mídia originais foram preservados.
+- `script.js`: navegação, galeria, carta, música e efeitos.
+- `ana1.jpeg`, `ana2.jpeg`, `ana3.jpeg`, `minecraft.jpg`: imagens da galeria.
+- `me-gustas-tu.mp3`: música do site.

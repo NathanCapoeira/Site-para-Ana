@@ -3,155 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Uma surpresa romântica feita com carinho para Ana.">
-    <title>Ana, isso é para você</title>
+    <meta name="description" content="Um presente digital romântico feito com carinho para Ana.">
+    <meta name="theme-color" content="#ff4f7b">
+
+    <title>❤️ Ana, isso é para você ❤️</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-glow" aria-hidden="true"></div>
-    <div class="floating-hearts" aria-hidden="true">
-        <span>❤</span>
-        <span>❤</span>
-        <span>❤</span>
-        <span>❤</span>
-        <span>❤</span>
-    </div>
+    <div class="ambient-effects" id="efeitosAmbiente" aria-hidden="true"></div>
 
-    <main class="app" id="conteudo">
-        <section class="screen screen--active hero" id="inicio" aria-labelledby="titulo-inicio">
-            <p class="eyebrow">Uma surpresa feita com carinho</p>
-            <h1 id="titulo-inicio">❤ Ana, isso é para você ❤</h1>
-            <p class="hero-text">
-                Eu fiz esse site porque você é uma pessoa muito especial para mim.
-            </p>
+    <main class="site-shell" id="conteudo">
+        <section class="screen screen-intro is-active" data-screen="intro" aria-labelledby="tituloInicio">
+            <div class="surface surface-hero">
+                <p class="eyebrow">Uma surpresa feita com carinho</p>
 
-            <div class="actions">
-                <button class="button button--primary" id="btnComecar" type="button">
+                <h1 id="tituloInicio">❤️ Ana, isso é para você ❤️</h1>
+
+                <p>
+                    Eu fiz esse site porque você é uma pessoa muito especial para mim.
+                </p>
+
+                <button class="button button-primary" id="btnComecar" type="button">
                     Começar a surpresa ✨
                 </button>
-                <button class="button button--music" id="btnMusica" type="button" aria-pressed="false">
-                    ▶ Tocar música
+            </div>
+        </section>
+
+        <section class="screen screen-message" data-screen="message" aria-labelledby="tituloMensagem" hidden>
+            <div class="surface">
+                <p class="eyebrow">Primeiro, uma verdade simples</p>
+
+                <h1 id="tituloMensagem">Para Ana ❤️</h1>
+
+                <p>
+                    Entre todas as pessoas que eu poderia conhecer,
+                    eu sou muito feliz por ter encontrado você.
+                </p>
+
+                <button class="button button-primary" id="btnContinuar" type="button">
+                    Continuar
                 </button>
             </div>
         </section>
 
-        <section class="screen intro" id="mensagem" aria-labelledby="titulo-mensagem" hidden>
-            <p class="eyebrow">Para Ana</p>
-            <h2 id="titulo-mensagem">Você deixou tudo mais bonito ❤</h2>
-            <p>
-                Entre todas as pessoas que eu poderia conhecer, eu sou muito feliz por ter encontrado você.
-            </p>
-            <button class="button button--primary" id="btnContinuar" type="button">
-                Continuar
-            </button>
+        <section class="screen screen-gallery" data-screen="gallery" aria-labelledby="tituloGaleria" hidden>
+            <div class="gallery-layout">
+                <header class="section-header">
+                    <button class="button button-subtle" id="voltarInicio" type="button">
+                        ← Início
+                    </button>
+
+                    <p class="eyebrow">Alguns pedacinhos favoritos</p>
+
+                    <h1 id="tituloGaleria">Momentos Especiais ✨</h1>
+
+                    <p>
+                        Separei alguns momentos porque cada detalhe seu
+                        tem um valor enorme pra mim.
+                    </p>
+                </header>
+
+                <div class="galeria" aria-label="Galeria de momentos especiais">
+                    <figure class="card-foto card-foto-portrait">
+                        <button class="foto-botao" type="button" data-gallery-index="0" aria-label="Ampliar foto da Ana sorrindo">
+                            <img src="ana1.jpeg" alt="Foto da Ana sorrindo" loading="lazy">
+                        </button>
+                        <figcaption>Seu sorriso tem um jeito especial de deixar tudo mais bonito.</figcaption>
+                    </figure>
+
+                    <figure class="card-foto card-foto-portrait">
+                        <button class="foto-botao" type="button" data-gallery-index="1" aria-label="Ampliar retrato da Ana">
+                            <img src="ana2.jpeg" alt="Retrato da Ana em preto e branco" loading="lazy">
+                        </button>
+                        <figcaption>Você é uma daquelas pessoas que tornam os dias mais leves.</figcaption>
+                    </figure>
+
+                    <figure class="card-foto card-foto-square">
+                        <button class="foto-botao" type="button" data-gallery-index="2" aria-label="Ampliar close da Ana">
+                            <img src="ana3.jpeg" alt="Close da Ana olhando para a câmera" loading="lazy">
+                        </button>
+                        <figcaption>Eu amo cada detalhe seu, até aqueles que você talvez nem perceba.</figcaption>
+                    </figure>
+
+                    <figure class="card-foto card-foto-wide">
+                        <button class="foto-botao" type="button" data-gallery-index="3" aria-label="Ampliar lembrança no Minecraft">
+                            <img src="minecraft.jpg" alt="Dois personagens juntos em um cenário do Minecraft" loading="lazy">
+                        </button>
+                        <figcaption>Entre todos os mundos que eu poderia explorar, meu favorito é aquele em que você está comigo.</figcaption>
+                    </figure>
+                </div>
+
+                <section class="bloco-coracoes" aria-labelledby="tituloCoracoes">
+                    <p class="eyebrow">Declarações em pequenos gestos</p>
+
+                    <h2 id="tituloCoracoes">Pequenas declarações do meu amor ❤️</h2>
+
+                    <div class="coracoes" aria-label="Mensagens românticas">
+                        <button class="coracao" type="button" data-msg="Eu te amo mais do que consigo explicar. ❤️" aria-label="Mostrar primeira declaração">❤️</button>
+                        <button class="coracao" type="button" data-msg="Você é minha pessoa favorita." aria-label="Mostrar segunda declaração">❤️</button>
+                        <button class="coracao" type="button" data-msg="Seu jeito me prende de um jeito que ninguém mais consegue." aria-label="Mostrar terceira declaração">❤️</button>
+                        <button class="coracao" type="button" data-msg="Minha muié linda, Te amo demais❤️❤️❤️❤️❤️❤️❤️." aria-label="Mostrar quarta declaração">❤️</button>
+                        <button class="coracao" type="button" data-msg="Você é o tipo de pessoa que deixa saudade mesmo depois de cinco minutos..." aria-label="Mostrar quinta declaração">❤️</button>
+                    </div>
+
+                    <p id="mensagemCoracao" class="mensagem-coracao" aria-live="polite"></p>
+
+                    <button class="button button-primary" id="abrirCarta" type="button">
+                        Abrir carta ❤️
+                    </button>
+                </section>
+            </div>
         </section>
 
-        <section class="screen gallery-screen" id="galeria" aria-labelledby="titulo-galeria" hidden>
-            <div class="section-header">
-                <div>
-                    <p class="eyebrow">Momentos guardados</p>
-                    <h2 id="titulo-galeria">Momentos Especiais ✨</h2>
-                </div>
-                <button class="button button--ghost" id="btnInicio" type="button">
-                    ← Início
+        <section class="screen screen-letter" data-screen="letter" aria-labelledby="tituloCarta" hidden>
+            <article class="carta">
+                <button class="button button-subtle" id="fecharCarta" type="button">
+                    Voltar ❤️
                 </button>
-            </div>
 
-            <p class="section-copy">
-                Separei alguns momentos porque cada detalhe seu tem um valor enorme pra mim.
-            </p>
+                <p class="eyebrow">Guardado para o final</p>
 
-            <div class="gallery" aria-label="Galeria de fotos da Ana">
-                <article class="photo-card">
-                    <button class="photo-button" type="button" aria-label="Ampliar foto da Ana sorrindo">
-                        <img src="assets/images/ana1.jpeg" alt="Ana sorrindo em um momento especial" loading="lazy">
-                    </button>
-                    <p>Seu sorriso tem um jeito especial de deixar tudo mais bonito.</p>
-                </article>
+                <h1 id="tituloCarta">Uma última coisa ❤️</h1>
 
-                <article class="photo-card">
-                    <button class="photo-button" type="button" aria-label="Ampliar foto da Ana">
-                        <img src="assets/images/ana2.jpeg" alt="Ana em uma foto vertical" loading="lazy">
-                    </button>
-                    <p>Você é uma daquelas pessoas que tornam os dias mais leves.</p>
-                </article>
+                <p>Ana,</p>
 
-                <article class="photo-card">
-                    <button class="photo-button" type="button" aria-label="Ampliar foto da Ana">
-                        <img src="assets/images/ana3.jpeg" alt="Retrato da Ana" loading="lazy">
-                    </button>
-                    <p>Eu amo cada detalhe seu, até aqueles que você talvez nem perceba.</p>
-                </article>
+                <p>
+                    Eu poderia simplesmente ter mandado uma mensagem.
+                    Mas eu quis fazer algo diferente.
+                    Talvez esse site não seja perfeito, talvez ele tenha alguns erros,
+                    algumas partes simples, mas cada detalhe aqui foi feito pensando em você.
+                </p>
 
-                <article class="photo-card">
-                    <button class="photo-button" type="button" aria-label="Ampliar foto do mundo de Minecraft">
-                        <img src="assets/images/minecraft.jpg" alt="Mundo de Minecraft representando um momento juntos" loading="lazy">
-                    </button>
-                    <p>Entre todos os mundos que eu poderia explorar, meu favorito é aquele em que você está comigo.</p>
-                </article>
-            </div>
+                <p>
+                    Cada foto, cada frase e cada coração foram colocados aqui porque você é uma pessoa muito especial para mim.
+                </p>
 
-            <section class="love-notes" aria-labelledby="titulo-coracoes">
-                <p class="eyebrow">Pequenas declarações</p>
-                <h2 id="titulo-coracoes">Pequenas declarações do meu amor ❤</h2>
-                <div class="hearts-list" aria-label="Mensagens românticas">
-                    <button class="heart-button" type="button" data-msg="Eu te amo mais do que consigo explicar. ❤" aria-label="Mostrar declaração 1">❤</button>
-                    <button class="heart-button" type="button" data-msg="Você é minha pessoa favorita." aria-label="Mostrar declaração 2">❤</button>
-                    <button class="heart-button" type="button" data-msg="Seu jeito me prende de um jeito que ninguém mais consegue." aria-label="Mostrar declaração 3">❤</button>
-                    <button class="heart-button" type="button" data-msg="Minha muié linda, Te amo demais ❤❤❤❤❤❤❤." aria-label="Mostrar declaração 4">❤</button>
-                    <button class="heart-button" type="button" data-msg="Você é o tipo de pessoa que deixa saudade mesmo depois de cinco minutos..." aria-label="Mostrar declaração 5">❤</button>
-                </div>
-                <p class="heart-message" id="mensagemCoracao" aria-live="polite"></p>
+                <p>
+                    Você faz parte dos meus pensamentos, dos meus dias e dos momentos que eu mais gosto de lembrar.
+                </p>
 
-                <div class="actions">
-                    <button class="button button--primary" id="btnAbrirCarta" type="button">
-                        Abrir carta ❤
-                    </button>
-                </div>
-            </section>
+                <p>
+                    Obrigado por todas as conversas, pelas risadas, pela companhia e por ser quem você é.
+                </p>
+
+                <p>
+                    Eu admiro seu jeito, sua personalidade e a pessoa incrível que você é.
+                </p>
+
+                <p>
+                    E acima de tudo, queria que você soubesse uma coisa:
+                </p>
+
+                <p class="assinatura-destaque">
+                    <strong>Eu te amo. ❤️</strong>
+                </p>
+
+                <p>
+                    Com carinho,<br>
+                    <strong>Nathan</strong>
+                </p>
+            </article>
         </section>
     </main>
 
-    <dialog class="letter-dialog" id="carta" aria-labelledby="titulo-carta">
-        <article class="letter">
-            <button class="icon-button" id="btnFecharCarta" type="button" aria-label="Fechar carta">×</button>
-            <h2 id="titulo-carta">Uma última coisa ❤</h2>
-            <p>
-                Ana,
-                <br><br>
-                Eu poderia simplesmente ter mandado uma mensagem.
-                Mas eu quis fazer algo diferente.
-                Talvez esse site não seja perfeito, talvez ele tenha alguns erros,
-                algumas partes simples, mas cada detalhe aqui foi feito pensando em você.
-                <br><br>
-                Cada foto, cada frase e cada coração foram colocados aqui porque você é uma pessoa muito especial para mim.
-                <br><br>
-                Você faz parte dos meus pensamentos, dos meus dias e dos momentos que eu mais gosto de lembrar.
-                <br><br>
-                Obrigado por todas as conversas, pelas risadas, pela companhia e por ser quem você é.
-                <br><br>
-                Eu admiro seu jeito, sua personalidade e a pessoa incrível que você é.
-                <br><br>
-                E acima de tudo, queria que você soubesse uma coisa:
-                <br><br>
-                <strong>Eu te amo. ❤</strong>
-                <br><br>
-                Com carinho,
-                <br>
-                <strong>Nathan</strong>
-            </p>
-            <button class="button button--primary" id="btnVoltarGaleria" type="button">
-                Voltar ❤
+    <aside class="controle-musica" aria-label="Controle da música">
+        <audio id="player" src="me-gustas-tu.mp3" preload="metadata"></audio>
+
+        <div class="status-musica">
+            <span class="pulso-musica" aria-hidden="true"></span>
+            <span id="statusMusica" aria-live="polite">Música pronta</span>
+        </div>
+
+        <div class="botoes-musica">
+            <button class="music-button" id="tocarMusica" type="button">
+                ▶️ Tocar
             </button>
-        </article>
-    </dialog>
+            <button class="music-button" id="pausarMusica" type="button" disabled>
+                ⏸️ Pausar
+            </button>
+        </div>
+    </aside>
 
-    <dialog class="image-dialog" id="modalImagem" aria-label="Foto ampliada">
-        <button class="icon-button image-dialog__close" id="btnFecharImagem" type="button" aria-label="Fechar foto">×</button>
-        <img id="imagemAmpliada" src="" alt="">
-    </dialog>
+    <div class="modal" id="modalGaleria" role="dialog" aria-modal="true" aria-labelledby="tituloModal" aria-hidden="true" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
 
-    <audio id="player" preload="metadata" src="assets/audio/me-gustas-tu.mp3"></audio>
+        <div class="modal-content">
+            <button class="modal-close" id="fecharModal" type="button" aria-label="Fechar foto ampliada">
+                ×
+            </button>
+
+            <button class="modal-nav modal-prev" id="fotoAnterior" type="button" aria-label="Foto anterior">
+                ‹
+            </button>
+
+            <figure class="modal-figure">
+                <h2 class="sr-only" id="tituloModal">Foto ampliada da galeria</h2>
+                <img id="imagemModal" src="" alt="">
+                <figcaption id="legendaModal"></figcaption>
+            </figure>
+
+            <button class="modal-nav modal-next" id="fotoProxima" type="button" aria-label="Próxima foto">
+                ›
+            </button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
