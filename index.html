@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Um presente digital romântico feito com carinho para Ana.">
+    <meta name="author" content="Nathan">
     <meta name="theme-color" content="#ff4f7b">
 
     <title>❤️ Ana, isso é para você ❤️</title>
@@ -14,29 +15,29 @@
     <div class="ambient-effects" id="efeitosAmbiente" aria-hidden="true"></div>
 
     <main class="site-shell" id="conteudo">
-        <section class="screen screen-intro is-active" data-screen="intro" aria-labelledby="tituloInicio">
-            <div class="surface surface-hero">
+        <section class="screen screen-intro is-active" data-screen="intro" aria-labelledby="tituloInicio" aria-describedby="descricaoInicio">
+            <header class="surface surface-hero">
                 <p class="eyebrow">Uma surpresa feita com carinho</p>
 
                 <h1 id="tituloInicio">❤️ Ana, isso é para você ❤️</h1>
 
-                <p>
+                <p id="descricaoInicio">
                     Eu fiz esse site porque você é uma pessoa muito especial para mim.
                 </p>
 
                 <button class="button button-primary" id="btnComecar" type="button">
                     Começar a surpresa ✨
                 </button>
-            </div>
+            </header>
         </section>
 
-        <section class="screen screen-message" data-screen="message" aria-labelledby="tituloMensagem" hidden>
+        <section class="screen screen-message" data-screen="message" aria-labelledby="tituloMensagem" aria-describedby="descricaoMensagem" hidden>
             <div class="surface">
                 <p class="eyebrow">Primeiro, uma verdade simples</p>
 
                 <h1 id="tituloMensagem">Para Ana ❤️</h1>
 
-                <p>
+                <p id="descricaoMensagem">
                     Entre todas as pessoas que eu poderia conhecer,
                     eu sou muito feliz por ter encontrado você.
                 </p>
@@ -47,7 +48,7 @@
             </div>
         </section>
 
-        <section class="screen screen-gallery" data-screen="gallery" aria-labelledby="tituloGaleria" hidden>
+        <section class="screen screen-gallery" data-screen="gallery" aria-labelledby="tituloGaleria" aria-describedby="descricaoGaleria" hidden>
             <div class="gallery-layout">
                 <header class="section-header">
                     <button class="button button-subtle" id="voltarInicio" type="button">
@@ -58,7 +59,7 @@
 
                     <h1 id="tituloGaleria">Momentos Especiais ✨</h1>
 
-                    <p>
+                    <p id="descricaoGaleria">
                         Separei alguns momentos porque cada detalhe seu
                         tem um valor enorme pra mim.
                     </p>
@@ -66,48 +67,48 @@
 
                 <div class="galeria" aria-label="Galeria de momentos especiais">
                     <figure class="card-foto card-foto-portrait">
-                        <button class="foto-botao" type="button" data-gallery-index="0" aria-label="Ampliar foto da Ana sorrindo">
-                            <img src="ana1.jpeg" alt="Foto da Ana sorrindo" loading="lazy">
+                        <button class="foto-botao" type="button" data-gallery-index="0" aria-label="Ampliar foto da Ana sorrindo" aria-describedby="legendaFotoAnaSorrindo">
+                            <img src="ana1.jpeg" alt="Foto da Ana sorrindo" loading="lazy" decoding="async">
                         </button>
-                        <figcaption>Seu sorriso tem um jeito especial de deixar tudo mais bonito.</figcaption>
+                        <figcaption id="legendaFotoAnaSorrindo">Seu sorriso tem um jeito especial de deixar tudo mais bonito.</figcaption>
                     </figure>
 
                     <figure class="card-foto card-foto-portrait">
-                        <button class="foto-botao" type="button" data-gallery-index="1" aria-label="Ampliar retrato da Ana">
-                            <img src="ana2.jpeg" alt="Retrato da Ana em preto e branco" loading="lazy">
+                        <button class="foto-botao" type="button" data-gallery-index="1" aria-label="Ampliar retrato da Ana" aria-describedby="legendaRetratoAna">
+                            <img src="ana2.jpeg" alt="Retrato da Ana em preto e branco" loading="lazy" decoding="async">
                         </button>
-                        <figcaption>Você é uma daquelas pessoas que tornam os dias mais leves.</figcaption>
+                        <figcaption id="legendaRetratoAna">Você é uma daquelas pessoas que tornam os dias mais leves.</figcaption>
                     </figure>
 
                     <figure class="card-foto card-foto-square">
-                        <button class="foto-botao" type="button" data-gallery-index="2" aria-label="Ampliar close da Ana">
-                            <img src="ana3.jpeg" alt="Close da Ana olhando para a câmera" loading="lazy">
+                        <button class="foto-botao" type="button" data-gallery-index="2" aria-label="Ampliar close da Ana" aria-describedby="legendaCloseAna">
+                            <img src="ana3.jpeg" alt="Close da Ana olhando para a câmera" loading="lazy" decoding="async">
                         </button>
-                        <figcaption>Eu amo cada detalhe seu, até aqueles que você talvez nem perceba.</figcaption>
+                        <figcaption id="legendaCloseAna">Eu amo cada detalhe seu, até aqueles que você talvez nem perceba.</figcaption>
                     </figure>
 
                     <figure class="card-foto card-foto-wide">
-                        <button class="foto-botao" type="button" data-gallery-index="3" aria-label="Ampliar lembrança no Minecraft">
-                            <img src="minecraft.jpg" alt="Dois personagens juntos em um cenário do Minecraft" loading="lazy">
+                        <button class="foto-botao" type="button" data-gallery-index="3" aria-label="Ampliar lembrança no Minecraft" aria-describedby="legendaMinecraft">
+                            <img src="minecraft.jpg" alt="Dois personagens juntos em um cenário do Minecraft" loading="lazy" decoding="async">
                         </button>
-                        <figcaption>Entre todos os mundos que eu poderia explorar, meu favorito é aquele em que você está comigo.</figcaption>
+                        <figcaption id="legendaMinecraft">Entre todos os mundos que eu poderia explorar, meu favorito é aquele em que você está comigo.</figcaption>
                     </figure>
                 </div>
 
-                <section class="bloco-coracoes" aria-labelledby="tituloCoracoes">
+                <section class="bloco-coracoes" aria-labelledby="tituloCoracoes" aria-describedby="mensagemCoracao">
                     <p class="eyebrow">Declarações em pequenos gestos</p>
 
                     <h2 id="tituloCoracoes">Pequenas declarações do meu amor ❤️</h2>
 
                     <div class="coracoes" aria-label="Mensagens românticas">
-                        <button class="coracao" type="button" data-msg="Eu te amo mais do que consigo explicar. ❤️" aria-label="Mostrar primeira declaração">❤️</button>
-                        <button class="coracao" type="button" data-msg="Você é minha pessoa favorita." aria-label="Mostrar segunda declaração">❤️</button>
-                        <button class="coracao" type="button" data-msg="Seu jeito me prende de um jeito que ninguém mais consegue." aria-label="Mostrar terceira declaração">❤️</button>
-                        <button class="coracao" type="button" data-msg="Minha muié linda, Te amo demais❤️❤️❤️❤️❤️❤️❤️." aria-label="Mostrar quarta declaração">❤️</button>
-                        <button class="coracao" type="button" data-msg="Você é o tipo de pessoa que deixa saudade mesmo depois de cinco minutos..." aria-label="Mostrar quinta declaração">❤️</button>
+                        <button class="coracao" type="button" data-msg="Eu te amo mais do que consigo explicar. ❤️" aria-label="Mostrar primeira declaração" aria-controls="mensagemCoracao">❤️</button>
+                        <button class="coracao" type="button" data-msg="Você é minha pessoa favorita." aria-label="Mostrar segunda declaração" aria-controls="mensagemCoracao">❤️</button>
+                        <button class="coracao" type="button" data-msg="Seu jeito me prende de um jeito que ninguém mais consegue." aria-label="Mostrar terceira declaração" aria-controls="mensagemCoracao">❤️</button>
+                        <button class="coracao" type="button" data-msg="Minha muié linda, Te amo demais❤️❤️❤️❤️❤️❤️❤️." aria-label="Mostrar quarta declaração" aria-controls="mensagemCoracao">❤️</button>
+                        <button class="coracao" type="button" data-msg="Você é o tipo de pessoa que deixa saudade mesmo depois de cinco minutos..." aria-label="Mostrar quinta declaração" aria-controls="mensagemCoracao">❤️</button>
                     </div>
 
-                    <p id="mensagemCoracao" class="mensagem-coracao" aria-live="polite"></p>
+                    <p id="mensagemCoracao" class="mensagem-coracao" aria-live="polite" aria-atomic="true"></p>
 
                     <button class="button button-primary" id="abrirCarta" type="button">
                         Abrir carta ❤️
@@ -116,8 +117,8 @@
             </div>
         </section>
 
-        <section class="screen screen-letter" data-screen="letter" aria-labelledby="tituloCarta" hidden>
-            <article class="carta">
+        <section class="screen screen-letter" data-screen="letter" aria-labelledby="tituloCarta" aria-describedby="conteudoCarta" hidden>
+            <article class="carta" id="conteudoCarta">
                 <button class="button button-subtle" id="fecharCarta" type="button">
                     Voltar ❤️
                 </button>
@@ -172,10 +173,10 @@
 
         <div class="status-musica">
             <span class="pulso-musica" aria-hidden="true"></span>
-            <span id="statusMusica" aria-live="polite">Música pronta</span>
+            <span id="statusMusica" aria-live="polite" aria-atomic="true">Música pronta</span>
         </div>
 
-        <div class="botoes-musica">
+        <div class="botoes-musica" role="group" aria-label="Ações da música">
             <button class="music-button" id="tocarMusica" type="button">
                 ▶️ Tocar
             </button>
@@ -185,7 +186,7 @@
         </div>
     </aside>
 
-    <div class="modal" id="modalGaleria" role="dialog" aria-modal="true" aria-labelledby="tituloModal" aria-hidden="true" hidden>
+    <div class="modal" id="modalGaleria" role="dialog" aria-modal="true" aria-labelledby="tituloModal" aria-describedby="legendaModal" aria-hidden="true" hidden>
         <div class="modal-backdrop" data-close-modal></div>
 
         <div class="modal-content">
