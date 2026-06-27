@@ -1,0 +1,3 @@
+Teste de escrita feito pelo Codex em 2026-06-26.
+
+Se este arquivo existe nesta branch, a integração tem permissão para alterar arquivos no repositório.
